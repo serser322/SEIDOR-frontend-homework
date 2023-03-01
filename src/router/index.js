@@ -15,7 +15,7 @@ export const router = createRouter(
         component: () => import('../views/StepTwo.vue')
       },
       {
-        path: '/checkout/step-2-payment',
+        path: '/checkout/step-3-order-confirmation',
         name: 'StepThree',
         component: () => import('../views/StepThree.vue')
       }
