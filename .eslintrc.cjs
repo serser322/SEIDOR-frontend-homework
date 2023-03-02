@@ -1,11 +1,12 @@
 module.exports = {
+  root: true,
   env: {
     node: true,
     es2021: true
   },
   extends: [
-    'plugin:vue/vue3-essential',
-    'standard'
+    'plugin:vue/vue3-recommended',
+    '@vue/eslint-config-standard'
   ],
   overrides: [
     {
@@ -21,5 +22,6 @@ module.exports = {
     'vue'
   ],
   rules: {
-  }
+  },
+  parser: 'vue-eslint-parser'
 }

@@ -1,5 +1,5 @@
 <template>
-  <div>Step 1</div>
+  <div />
 </template>
 
 <script>

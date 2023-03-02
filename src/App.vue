@@ -1,12 +1,21 @@
 <template>
-  <router-view/>
+  <NavBar />
+  <StepBar />
+  <router-view />
 </template>
 
 <script setup>
-
+import NavBar from './components/NavBar.vue'
+import StepBar from './components/StepBar.vue'
 </script>
 
-<style scoped>
+<style lang="scss">
+.root {}
+
+* {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
 /* .logo {
   height: 6em;
   padding: 1.5em;
