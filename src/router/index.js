@@ -6,18 +6,28 @@ export const router = createRouter(
     routes: [
       {
         path: '/',
-        name: 'StepOne',
-        component: () => import('../views/StepOne.vue')
+        redirect: '/checkout'
       },
       {
-        path: '/checkout/step-2-payment',
-        name: 'StepTwo',
-        component: () => import('../views/StepTwo.vue')
-      },
-      {
-        path: '/checkout/step-3-order-confirmation',
-        name: 'StepThree',
-        component: () => import('../views/StepThree.vue')
+        path: '/checkout',
+        redirect: '/checkout/step-1-my-data',
+        children: [
+          {
+            path: 'step-1-my-data',
+            name: 'StepOne',
+            component: () => import('../views/StepOne.vue')
+          },
+          {
+            path: 'step-2-payment',
+            name: 'StepTwo',
+            component: () => import('../views/StepTwo.vue')
+          },
+          {
+            path: 'step-3-order-confirmation',
+            name: 'StepThree',
+            component: () => import('../views/StepThree.vue')
+          }
+        ]
       }
     ]
   }
