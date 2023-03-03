@@ -27,6 +27,7 @@
   height: 25rem;
   border: 2px solid black;
   box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+  background-color: white;
 
   .card__content,
   .card__footer {

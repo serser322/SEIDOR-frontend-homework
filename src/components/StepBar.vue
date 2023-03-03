@@ -50,10 +50,13 @@
        .stepper__item-number {
         height: 3rem;
         width: 3rem;
-        border: 1px solid blue;
+        border: 1px solid var(--secondary);
         border-radius: 50%;
         @include flex-justify-center();
         align-items:center;
+        background-color: var(--primary);
+        color:white;
+        font-size:1.5rem;
       }
 
       :nth-child(2) {
@@ -66,7 +69,7 @@
         height: 1px;
         width: 10rem;
         border: 0;
-        border-top: 1px dashed dodgerblue;
+        border-top: 1px dashed var(--primary);
         margin: auto 2rem;
       }
     }

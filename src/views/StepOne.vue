@@ -1,5 +1,4 @@
 <script setup>
-
 import StepBar from '../components/StepBar.vue'
 import BaseCard from '../components/BaseCard.vue'
 import BaseButton from '../components/BaseButton.vue'
@@ -47,10 +46,10 @@ form {
     flex-direction: column;
     margin: 1rem;
 
-    label{
+    label {
       &:after {
-        content:'*';
-        color:red;
+        content: "*";
+        color: red;
       }
     }
 
