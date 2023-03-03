@@ -8,40 +8,57 @@
         <div class="stepper__item-number">
           1
         </div>
-        My Data
+        <div>
+          My Data
+        </div>
       </div>
       <div class="stepper__item">
         <div class="stepper__item-line" />
+        <div>&nbsp;</div>
       </div>
       <div class="stepper__item">
         <div class="stepper__item-number">
           2
         </div>
-        Payment
+        <div>
+          Payment
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss">
-.stepper {
-  margin: 5rem auto;
-  width: 100%;
+<style lang="scss" scoped>
+
+@mixin flex-justify-center() {
   display:flex;
   justify-content: center;
+}
+
+.stepper {
+  margin: 4rem auto;
+  width: 100%;
+  @include flex-justify-center();
 
   .stepper__wrapper {
     display: flex;
 
     .stepper__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
        .stepper__item-number {
-        height: 2rem;
-        width: 2rem;
+        height: 3rem;
+        width: 3rem;
         border: 1px solid blue;
         border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items:center
+        @include flex-justify-center();
+        align-items:center;
+      }
+
+      :nth-child(2) {
+        margin-top: 1rem;
+        font-size: 1.5rem;
       }
 
       .stepper__item-line {
@@ -50,7 +67,7 @@
         width: 10rem;
         border: 0;
         border-top: 1px dashed dodgerblue;
-        margin: 0 2rem;
+        margin: auto 2rem;
       }
     }
   }

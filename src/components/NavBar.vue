@@ -38,6 +38,9 @@
 </template>
 
 <style lang="scss">
+
+$nav-font-size:1.5rem;
+
 .nav {
   .nav__group {
     display: flex;
@@ -47,7 +50,7 @@
       display: flex;
       /* flex-flow: row nowrap; */
       align-items: center;
-      font-size: 1.5rem;
+      font-size: $nav-font-size;
       padding: 1rem;
 
       span {
@@ -56,7 +59,7 @@
       }
 
       .nav__group-select {
-        font-size: 1.5rem;
+        font-size: $nav-font-size;
       }
     }
   }
