@@ -1,12 +1,29 @@
-<template>
-  <router-view/>
-</template>
-
 <script setup>
-
+import NavBar from './components/NavBar.vue'
 </script>
 
-<style scoped>
+<template>
+  <NavBar />
+  <router-view />
+</template>
+
+<style lang="scss">
+
+:root {
+  --primary: rgb(27,161,226);
+  --secondary: rgb(9,130,240);
+  --finish-coloe:rgb(96,169,23);
+}
+
+* {
+  font-family: 'Noto Sans TC', sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: rgb(232, 232, 232);
+}
+
 /* .logo {
   height: 6em;
   padding: 1.5em;
