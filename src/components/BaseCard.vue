@@ -1,11 +1,19 @@
 <script setup>
+const props = defineProps({
+  cardData: {
+    type: Object,
+    default: () => {}
+  }
+
+})
+
 </script>
 
 <template>
   <div class="card">
-    <h1>My Data</h1>
+    <h1>{{ cardData.title }}</h1>
     <div class="card__description">
-      Please enter your personal data.
+      {{ cardData.description }}
     </div>
     <div class="card__content">
       <slot name="card_content" />
@@ -33,6 +41,7 @@
   .card__footer {
     width: 50%;
   }
-
 }
+
+
 </style>
