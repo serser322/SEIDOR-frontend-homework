@@ -33,7 +33,9 @@ const toStepThree = function () {
 </script>
 
 <template>
-  <StepBar />
+  <StepBar
+    :is-step-one-finished="true"
+  />
   <BaseCard :card-data="cardData">
     <template #card_content>
       <div class="info-box">
@@ -96,6 +98,11 @@ const toStepThree = function () {
   .info-box__description{
     text-align: center;
   }
+}
+
+.base_card__footer {
+  display: flex;
+  justify-content: space-between;
 }
 
 img {

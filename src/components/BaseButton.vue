@@ -8,7 +8,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="btn">
+  <div
+    class="btn"
+    :class="{ 'to-left': btnData.isBack , 'to-right':btnData.isNext}"
+  >
     <div class="btn__icon">
       <span
         v-if="btnData.isBack"
@@ -44,10 +47,16 @@ const props = defineProps({
   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
   background-color: var(--primary);
   color:white;
+  min-width: 120px;
 
   &:hover {
     cursor: pointer;
-    box-shadow: 0 0 8px orange
+    box-shadow: 0 0 8px aqua
+  }
+
+  &:active {
+    background-color: rgb(118, 118, 118);
+    box-shadow: 0 0 8px  rgb(184, 184, 184);
   }
 
   .btn__icon{
@@ -60,4 +69,14 @@ const props = defineProps({
     }
   }
 }
+
+.to-left {
+    padding-left:1rem;
+    padding-right:3rem;
+  }
+
+  .to-right {
+    padding-left:3rem;
+    padding-right: 1rem;
+  }
 </style>

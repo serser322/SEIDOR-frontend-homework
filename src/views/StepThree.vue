@@ -10,7 +10,10 @@ const cardData = {
 </script>
 
 <template>
-  <StepBar />
+  <StepBar
+    :is-step-one-finished="true"
+    :is-step-two-finished="true"
+  />
   <BaseCard
     :card-data="cardData"
   >
