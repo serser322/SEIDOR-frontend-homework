@@ -15,16 +15,25 @@ export const router = createRouter(
           {
             path: 'step-1-my-data',
             name: 'StepOne',
+            meta: {
+              title: 'Step 1 | My Data'
+            },
             component: () => import('../views/StepOne.vue')
           },
           {
             path: 'step-2-payment',
             name: 'StepTwo',
+            meta: {
+              title: 'Step 2 | Payment'
+            },
             component: () => import('../views/StepTwo.vue')
           },
           {
             path: 'step-3-order-confirmation',
             name: 'StepThree',
+            meta: {
+              title: 'Step 3 | Order Created'
+            },
             component: () => import('../views/StepThree.vue')
           }
         ]
@@ -32,3 +41,7 @@ export const router = createRouter(
     ]
   }
 )
+
+router.afterEach((to, from) => {
+  document.title = to.meta.title
+})
