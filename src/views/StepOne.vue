@@ -4,13 +4,20 @@ import BaseCard from '../components/BaseCard.vue'
 import BaseButton from '../components/BaseButton.vue'
 import { useRouter } from 'vue-router'
 
+// Data
 const cardData = {
   title: 'My Data',
   description: 'Please enter your personal data and press continue'
 }
 
-const router = useRouter()
+const continueBtnData = {
+  text: 'Continue',
+  isBack: false,
+  isNext: true
+}
 
+// Router
+const router = useRouter()
 const toStepTwo = function () {
   router.push({ name: 'StepTwo' })
 }
@@ -47,6 +54,7 @@ const toStepTwo = function () {
     <template #card_footer>
       <div class="base_card__footer">
         <BaseButton
+          :btn-data="continueBtnData"
           @click="toStepTwo"
         />
       </div>
@@ -56,8 +64,6 @@ const toStepTwo = function () {
 
 <style lang="scss" scoped>
 form {
-  margin: 1rem 0;
-
   .form__input {
     display: flex;
     flex-direction: column;

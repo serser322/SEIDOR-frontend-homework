@@ -1,56 +1,105 @@
 <script setup>
 import StepBar from '../components/StepBar.vue'
 import BaseCard from '../components/BaseCard.vue'
-// import BaseButton from '../components/BaseButton.vue'
-// import { useRouter } from 'vue-router'
+import BaseButton from '../components/BaseButton.vue'
+import { useRouter } from 'vue-router'
 
+// Data
 const cardData = {
   title: 'Payment',
   description: 'After making the payment you will receive a confirmation email with details of your purchase'
+}
+
+const backBtnData = {
+  text: 'Back',
+  isBack: true,
+  isNext: false
+}
+
+const payBtnData = {
+  text: 'Pay',
+  isBack: false,
+  isNext: true
+}
+
+// Router
+const router = useRouter()
+const toStepOne = function () {
+  router.push({ name: 'StepOne' })
+}
+const toStepThree = function () {
+  router.push({ name: 'StepThree' })
 }
 </script>
 
 <template>
   <StepBar />
-  <BaseCard
-    :card-data="cardData"
-  >
+  <BaseCard :card-data="cardData">
     <template #card_content>
       <div class="info-box">
         <div class="info-box__icon">
-          icon
+          <img
+            src="../assets/credit card.png"
+            alt=""
+          >
         </div>
-        <div class="info-box__title">
+        <h3>
           Credit Card
-        </div>
+        </h3>
         <div class="info-box__description">
           You will be redirected to a secure payment platform. This is a
           secure process. The validation of your payment can take up to
           24 hours.
         </div>
-        <info-box__images>
+        <div class="info-box__images">
           <img
             src="../assets/mastercard.svg"
             alt=""
           >
           <img
-            src="../assets/credit card.png"
+            src="../assets/visa.svg"
             alt=""
           >
-        </info-box__images>
+        </div>
       </div>
     </template>
     <template #card_footer>
-      1111
+      <div class="base_card__footer">
+        <BaseButton
+          :btn-data="backBtnData"
+          @click="toStepOne"
+        />
+        <BaseButton
+          :btn-data="payBtnData"
+          @click="toStepThree"
+        />
+      </div>
     </template>
   </BaseCard>
 </template>
 
 <style lang="scss" scoped>
+.info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgb(195, 195, 195);
+  padding: 1rem 1rem 0 1rem;
+
+  >h3{
+    margin: 0.2rem 0;
+  }
+  >div {
+    margin:0.2rem 1rem;
+  }
+
+  .info-box__description{
+    text-align: center;
+  }
+}
 
 img {
-      width:100px;
-      border-radius: 4px;
-    }
-
+  width: 50px;
+  border-radius: 4px;
+}
 </style>

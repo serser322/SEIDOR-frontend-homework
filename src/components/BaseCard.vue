@@ -4,7 +4,6 @@ const props = defineProps({
     type: Object,
     default: () => {}
   }
-
 })
 
 </script>
@@ -28,20 +27,20 @@ const props = defineProps({
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin: 0 auto;
-  width: 50rem;
-  height: 25rem;
+  width: 60rem;
+  min-height: 25rem;
   border: 2px solid black;
   box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
   background-color: white;
+  padding-top:1.5rem;
 
   .card__content,
   .card__footer {
+    margin: 1rem 0;
     width: 50%;
   }
 }
-
 
 </style>
