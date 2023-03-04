@@ -12,7 +12,7 @@ import NavBar from './components/NavBar.vue'
 :root {
   --primary: rgb(27,161,226);
   --secondary: rgb(9,130,240);
-  --finish-coloe:rgb(96,169,23);
+  --finish-color:rgb(96,169,23);
 }
 
 * {
@@ -21,7 +21,7 @@ import NavBar from './components/NavBar.vue'
 }
 
 html {
-  background-color: rgb(232, 232, 232);
+  background-color: rgb(214, 214, 214);
 }
 
 /* .logo {

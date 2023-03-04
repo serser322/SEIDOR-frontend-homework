@@ -1,12 +1,34 @@
 <script setup>
+const props = defineProps({
+  isStepOneFinished: {
+    type: Boolean,
+    default: false
+  },
+  isStepTwoFinished: {
+    type: Boolean,
+    default: false
+  }
+})
 </script>
 
 <template>
   <div class="stepper">
     <div class="stepper__wrapper">
       <div class="stepper__item">
-        <div class="stepper__item-number">
+        <div
+          v-if="!isStepOneFinished"
+          class="stepper__item-number"
+        >
           1
+        </div>
+        <div
+          v-if="isStepOneFinished"
+          class="stepper__item-finished"
+        >
+          <img
+            src="../assets/check-symbol.png"
+            alt=""
+          >
         </div>
         <div>
           My Data
@@ -17,8 +39,20 @@
         <div>&nbsp;</div>
       </div>
       <div class="stepper__item">
-        <div class="stepper__item-number">
+        <div
+          v-if="!isStepTwoFinished"
+          class="stepper__item-number"
+        >
           2
+        </div>
+        <div
+          v-if="isStepTwoFinished"
+          class="stepper__item-finished"
+        >
+          <img
+            src="../assets/check-symbol.png"
+            alt=""
+          >
         </div>
         <div>
           Payment
@@ -29,17 +63,26 @@
 </template>
 
 <style lang="scss" scoped>
-
 @mixin flex-justify-center() {
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
+@mixin step-circle() {
+  display: flex;
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  color: white;
+  align-items: center;
+}
+
 .stepper {
+  display: flex;
+  justify-content: center;
   margin: 4rem auto;
   width: 100%;
-  @include flex-justify-center();
-
   .stepper__wrapper {
     display: flex;
 
@@ -47,16 +90,22 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-       .stepper__item-number {
-        height: 3rem;
-        width: 3rem;
+
+      .stepper__item-number {
+        @include step-circle();
         border: 1px solid var(--secondary);
-        border-radius: 50%;
-        @include flex-justify-center();
-        align-items:center;
         background-color: var(--primary);
-        color:white;
-        font-size:1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .stepper__item-finished {
+        @include step-circle();
+        border: 1px solid darkgreen;
+        background-color: var(--finish-color);
+
+        img {
+          width: 25px
+        }
       }
 
       :nth-child(2) {

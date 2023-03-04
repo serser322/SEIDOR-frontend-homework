@@ -38,7 +38,7 @@
 </template>
 
 <style lang="scss">
-$nav-font-size: 1.5rem;
+$nav-font-size: 1.2rem;
 
 .nav {
   .nav__group {
