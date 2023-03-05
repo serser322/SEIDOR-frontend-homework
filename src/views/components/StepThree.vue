@@ -1,19 +1,33 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 import StepBar from '../../components/StepBar.vue'
 import BaseCard from '../../components/BaseCard.vue'
 
-// Data
-const { t } = useI18n()
-const cardData = computed(() => {
-  return {
-    title: t('common.order_created')
+const store = useStore()
+const pageData = JSON.parse(JSON.stringify(store.state.pageData))
+
+const router = useRouter()
+onMounted(() => {
+  if (Object.keys(pageData).length === 0) {
+    router.push({ name: 'StepOne' })
   }
 })
-// const cardData = {
-//   title: t('common.order_created')
-// }
+
+const i18n = useI18n()
+const locale = computed(() => {
+  return i18n.locale.value
+})
+
+const cardData = computed(() => {
+  return {
+    title: locale.value === 'en' ? pageData?.title?.en : pageData?.title?.zh_CN,
+    message: locale.value === 'en' ? pageData?.message?.en : pageData?.message?.zh_CN
+  }
+})
+
 </script>
 
 <template>
@@ -34,8 +48,7 @@ const cardData = computed(() => {
             >
           </div>
           <div class="info__text">
-            <div>{{ $t('step_three.info_1') }}</div>
-            <div>{{ $t('step_three.info_2') }}</div>
+            <div>{{ cardData.message }}</div>
           </div>
         </div>
       </template>

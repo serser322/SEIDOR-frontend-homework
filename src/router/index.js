@@ -36,7 +36,8 @@ export const router = createRouter(
             meta: {
               title: 'Step 3 | Order Created'
             },
-            component: () => import('../views/components/StepThree.vue')
+            component: () => import('../views/components/StepThree.vue'),
+            props: true
           }
         ]
       }
