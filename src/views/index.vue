@@ -21,11 +21,17 @@ import NavBar from '../components/NavBar.vue'
 
   .view {
     margin: auto ;
+
+    display: flex;
+    &:before {
+      content: '';
+      display: block;
+      width: 2rem;
+    }
   }
 
   @media (min-width: 576px) {
     flex-direction: column;
-
   }
 }
 </style>

@@ -42,7 +42,7 @@ const toStepThree = function () {
         <div class="info-box">
           <div class="info-box__icon">
             <img
-              src="../assets/credit card.png"
+              src="../../assets/credit card.png"
               alt=""
             >
           </div>
@@ -56,11 +56,11 @@ const toStepThree = function () {
           </div>
           <div class="info-box__images">
             <img
-              src="../assets/mastercard.svg"
+              src="../../assets/mastercard.svg"
               alt=""
             >
             <img
-              src="../assets/visa.svg"
+              src="../../assets/visa.svg"
               alt=""
             >
           </div>
@@ -104,11 +104,17 @@ const toStepThree = function () {
 
 .base_card__footer {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+
+  @media (min-width: 576px) {
+    flex-direction: row;
+    justify-content: space-between;
+}
 }
 
 img {
   width: 50px;
   border-radius: 4px;
 }
+
 </style>

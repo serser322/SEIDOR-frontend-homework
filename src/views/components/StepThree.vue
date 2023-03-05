@@ -22,7 +22,7 @@ const cardData = {
         <div class="info">
           <div class="info__image">
             <img
-              src="../assets/certificate.png"
+              src="../../assets/certificate.png"
               alt=""
             >
           </div>

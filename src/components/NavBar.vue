@@ -46,10 +46,7 @@ const extendMenu = function () {
   <!-- Web navbar | End -->
 
   <!-- Mobile sidebar | Start-->
-  <aside
-    class="menu"
-    :class="{ 'menu__layout-fixed': isExtended }"
-  >
+  <aside class="menu">
     <div
       class="menu__list"
       :class="{ 'menu-extended': isExtended }"
@@ -143,13 +140,14 @@ $nav-font-size: 1.2rem;
 .menu {
   display: fixed;
   min-height: 100vh;
-  /* transition: 0.2s ease-out; */
 
   .menu__list {
     /* display: fixed; */
+    position: fixed;
     width: 2rem;
     height: 100%;
     background-color: white;
+    transition: 0.2s ease-out;
 
     .menu__toggle {
       display: flex;
@@ -218,15 +216,6 @@ $nav-font-size: 1.2rem;
     display: none
   }
 }
-
-.menu__layout-fixed {
-    &:after {
-      content: '';
-      display: block;
-      width: 2rem;
-    }
-  }
-
 /* Mobile sidebar style | End */
 
 /* Web navbar | Start */
