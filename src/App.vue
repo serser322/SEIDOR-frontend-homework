@@ -1,9 +1,8 @@
 <script setup>
-import NavBar from './components/NavBar.vue'
+
 </script>
 
 <template>
-  <NavBar />
   <router-view />
 </template>
 
@@ -12,7 +11,7 @@ import NavBar from './components/NavBar.vue'
 :root {
   --primary: rgb(27,161,226);
   --secondary: rgb(9,130,240);
-  --finish-coloe:rgb(96,169,23);
+  --finish-color:rgb(96,169,23);
 }
 
 * {
@@ -21,7 +20,13 @@ import NavBar from './components/NavBar.vue'
 }
 
 html {
-  background-color: rgb(232, 232, 232);
+  background-color: rgb(214, 214, 214);
+  height: 100vh;
+}
+
+body {
+  margin:0;
+  height: 100vh;
 }
 
 /* .logo {

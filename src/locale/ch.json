@@ -1,0 +1,29 @@
+{
+  "common": {
+    "help": "協助",
+    "sign_in": "登入",
+    "my_data":"我的資料",
+    "payment":"付款",
+    "order_created": "訂單已成立",
+    "required":"必填"
+  },
+  "btn": {
+    "continue": "繼續",
+    "back": "返回",
+    "pay": "付款"
+  },
+  "step_one": {
+    "description": "請輸入您的個人資料並點選繼續鍵",
+    "name": "名字",
+    "last_name": "姓氏"
+  },
+  "step_two": {
+    "description": "付款後，您將收到購買明細的確認信件",
+    "credit_card": "信用卡",
+    "info": "您將跳轉至安全付款平台，以作為安全確保流程。您的付款大概需要24小時驗證。"
+  },
+  "step_three": {
+    "info_1": "恭喜您！您已成功付款。",
+    "info_2": "稍後將寄送一封確認信件至您的信箱。"
+  }
+}
