@@ -1,10 +1,12 @@
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { useStore } from 'vuex'
 import StepBar from '../../components/StepBar.vue'
 import BaseCard from '../../components/BaseCard.vue'
 import BaseButton from '../../components/BaseButton.vue'
+import BaseLoader from '../../components/BaseLoader.vue'
 
 // Data
 const { t } = useI18n()
@@ -31,13 +33,32 @@ const payBtnData = computed(() => {
   }
 })
 
-// Router
+// Back page
 const router = useRouter()
 const toStepOne = function () {
   router.push({ name: 'StepOne' })
 }
-const toStepThree = function () {
-  router.push({ name: 'StepThree' })
+
+// Next page
+const store = useStore()
+const loading = ref(false)
+
+const toStepThree = async function () {
+  try {
+    loading.value = true
+    const response = await fetch('https://run.mocky.io/v3/5fd5b0a0-7cec-4ccf-bdec-b9c99c78e29f')
+    const data = await response.json()
+    loading.value = false
+
+    store.commit('setPageData', data)
+    router.push({
+      name: 'StepThree'
+    })
+  } catch (error) {
+    console.error(error)
+  } finally {
+    loading.value = false
+  }
 }
 </script>
 
@@ -86,6 +107,15 @@ const toStepThree = function () {
         </div>
       </template>
     </BaseCard>
+
+    <!-- Loading | Start -->
+    <div
+      class="loading"
+      :class="{'hidden': !loading}"
+    >
+      <BaseLoader />
+    </div>
+    <!-- Loading | End -->
   </div>
 </template>
 
@@ -122,6 +152,22 @@ const toStepThree = function () {
 img {
   width: 50px;
   border-radius: 4px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height:100%;
+  background-color: rgb(205, 205, 205,0.6);
+  position: fixed;
+  top: 0 ;
+  right: 0;
+  z-index: 8;
+}
+.hidden {
+  display: none;
 }
 
 </style>
