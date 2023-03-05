@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { useStore } from 'vuex'
 import StepBar from '../../components/StepBar.vue'
 import BaseCard from '../../components/BaseCard.vue'
 import BaseButton from '../../components/BaseButton.vue'
@@ -24,14 +25,17 @@ const continueBtnData = computed(() => {
 })
 
 // Router
+const store = useStore()
 const router = useRouter()
 const toStepTwo = function () {
+  store.commit('setNameData', { name, lastName })
   validate() && router.push({ name: 'StepTwo' })
 }
 
 // Validate input
-const name = ref('')
-const lastName = ref('')
+
+const name = ref(JSON.parse(JSON.stringify(store.state.nameData.name)))
+const lastName = ref(JSON.parse(JSON.stringify(store.state.nameData.lastName)))
 
 const nameValidation = ref(true)
 const lastNameValidation = ref(true)
