@@ -1,26 +1,35 @@
 <script setup>
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import StepBar from '../../components/StepBar.vue'
 import BaseCard from '../../components/BaseCard.vue'
 import BaseButton from '../../components/BaseButton.vue'
-import { useRouter } from 'vue-router'
 
 // Data
-const cardData = {
-  title: 'Payment',
-  description: 'After making the payment you will receive a confirmation email with details of your purchase'
-}
+const { t } = useI18n()
+const cardData = computed(() => {
+  return {
+    title: t('common.payment'),
+    description: t('step_two.description')
+  }
+})
 
-const backBtnData = {
-  text: 'Back',
-  isBack: true,
-  isNext: false
-}
+const backBtnData = computed(() => {
+  return {
+    text: t('btn.back'),
+    isBack: true,
+    isNext: false
+  }
+})
 
-const payBtnData = {
-  text: 'Pay',
-  isBack: false,
-  isNext: true
-}
+const payBtnData = computed(() => {
+  return {
+    text: t('btn.pay'),
+    isBack: false,
+    isNext: true
+  }
+})
 
 // Router
 const router = useRouter()
@@ -47,12 +56,10 @@ const toStepThree = function () {
             >
           </div>
           <h3>
-            Credit Card
+            {{ $t('step_two.credit_card') }}
           </h3>
           <div class="info-box__description">
-            You will be redirected to a secure payment platform. This is a
-            secure process. The validation of your payment can take up to
-            24 hours.
+            {{ $t('step_two.info') }}
           </div>
           <div class="info-box__images">
             <img

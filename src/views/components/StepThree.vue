@@ -1,12 +1,19 @@
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import StepBar from '../../components/StepBar.vue'
 import BaseCard from '../../components/BaseCard.vue'
 
 // Data
-const cardData = {
-  title: 'Order Created',
-  description: ''
-}
+const { t } = useI18n()
+const cardData = computed(() => {
+  return {
+    title: t('common.order_created')
+  }
+})
+// const cardData = {
+//   title: t('common.order_created')
+// }
 </script>
 
 <template>
@@ -27,8 +34,8 @@ const cardData = {
             >
           </div>
           <div class="info__text">
-            <div>Congratulations, your payment was successful.</div>
-            <div>Shortly a confirmation email will arrive to your inbox</div>
+            <div>{{ $t('step_three.info_1') }}</div>
+            <div>{{ $t('step_three.info_2') }}</div>
           </div>
         </div>
       </template>

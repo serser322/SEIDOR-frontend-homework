@@ -1,8 +1,22 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+// Locale
+const locale = ref('en')
+onMounted(() => {
+  locale.value = localStorage.getItem('locale') || 'en'
+})
+
+const i18n = useI18n()
+const setLocale = function (event) {
+  const locale = event.target.value
+  i18n.locale.value = locale
+  localStorage.setItem('locale', locale)
+}
+
+// Extend Menu
 const isExtended = ref(false)
-
 const extendMenu = function () {
   isExtended.value = !isExtended.value
 }
@@ -16,22 +30,24 @@ const extendMenu = function () {
         <span class="material-symbols-outlined">
           Help
         </span>
-        HELP
+        {{ $t('common.help') }}
       </div>
       <div class="nav__group-item">
         <span class="material-symbols-outlined">
           account_circle
         </span>
-        SIGN IN
+        {{ $t('common.sign_in') }}
       </div>
       <div class="nav__group-item">
         <span class="material-symbols-outlined">
           flag
         </span>
         <select
-          id="language-select"
+          id="locale-select"
+          v-model="locale"
           class="nav__group-select"
-          name="language"
+          name="locale"
+          @change="setLocale"
         >
           <option value="en">
             EN
@@ -61,10 +77,10 @@ const extendMenu = function () {
       </div>
       <div class="menu__item">
         <span class="material-symbols-outlined">
-          Help
+          help
         </span>
         <span :class="{ 'hidden': !isExtended }">
-          HELP
+          {{ $t('common.help') }}
         </span>
       </div>
       <div class="menu__item">
@@ -72,7 +88,7 @@ const extendMenu = function () {
           account_circle
         </span>
         <div :class="{ 'hidden': !isExtended }">
-          SIGN IN
+          {{ $t('common.sign_in') }}
         </div>
       </div>
       <div class="menu__item">
@@ -80,10 +96,12 @@ const extendMenu = function () {
           flag
         </span>
         <select
-          id="language-select"
+          id="locale-select"
+          v-model="locale"
           class="nav__group-select"
           :class="{ 'hidden': !isExtended }"
-          name="language"
+          name="locale"
+          @change="setLocale"
         >
           <option value="en">
             EN

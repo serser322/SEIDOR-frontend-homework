@@ -31,7 +31,7 @@ const props = defineProps({
           >
         </div>
         <div>
-          My Data
+          {{ $t('common.my_data') }}
         </div>
       </div>
       <div class="stepper__item">
@@ -55,7 +55,7 @@ const props = defineProps({
           >
         </div>
         <div>
-          Payment
+          {{ $t('common.payment') }}
         </div>
       </div>
     </div>
