@@ -9,6 +9,7 @@ import BaseCard from '../../components/BaseCard.vue'
 const store = useStore()
 const pageData = JSON.parse(JSON.stringify(store.state.pageData))
 
+// If reload, redirect to page one
 const router = useRouter()
 onMounted(() => {
   if (Object.keys(pageData).length === 0) {
@@ -16,6 +17,7 @@ onMounted(() => {
   }
 })
 
+// Render response data
 const i18n = useI18n()
 const locale = computed(() => {
   return i18n.locale.value

@@ -33,13 +33,13 @@ const payBtnData = computed(() => {
   }
 })
 
-// Back page
+// To Back page
 const router = useRouter()
 const toStepOne = function () {
   router.push({ name: 'StepOne' })
 }
 
-// Next page
+// To next page
 const store = useStore()
 const loading = ref(false)
 
