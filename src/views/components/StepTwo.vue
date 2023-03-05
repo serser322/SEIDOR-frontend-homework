@@ -72,7 +72,7 @@ const toStepThree = async function () {
         <div class="info-box">
           <div class="info-box__icon">
             <img
-              src="../../assets/credit card.png"
+              src="../../assets/credit_card.png"
               alt=""
             >
           </div>
