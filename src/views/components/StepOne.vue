@@ -1,21 +1,27 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import StepBar from '../../components/StepBar.vue'
 import BaseCard from '../../components/BaseCard.vue'
 import BaseButton from '../../components/BaseButton.vue'
-import { useRouter } from 'vue-router'
 
 // Data
-const cardData = {
-  title: 'My Data',
-  description: 'Please enter your personal data and press continue'
-}
+const { t } = useI18n()
+const cardData = computed(() => {
+  return {
+    title: t('common.my_data'),
+    description: t('step_one.description')
+  }
+})
 
-const continueBtnData = {
-  text: 'Continue',
-  isBack: false,
-  isNext: true
-}
+const continueBtnData = computed(() => {
+  return {
+    text: t('btn.continue'),
+    isBack: false,
+    isNext: true
+  }
+})
 
 // Router
 const router = useRouter()
@@ -23,6 +29,7 @@ const toStepTwo = function () {
   validate() && router.push({ name: 'StepTwo' })
 }
 
+// Validate input
 const name = ref('')
 const lastName = ref('')
 
@@ -46,7 +53,7 @@ const validate = function () {
             class="form__input"
             :class="{ 'required': !nameValidation }"
           >
-            <label for="name">Name</label>
+            <label for="name">{{ $t('step_one.name') }}</label>
             <input
               id="name"
               v-model="name"
@@ -59,7 +66,7 @@ const validate = function () {
             class="form__input"
             :class="{ 'required': !lastNameValidation }"
           >
-            <label for="last_name">Last Name</label>
+            <label for="last_name">{{ $t('step_one.last_name') }}</label>
             <input
               id="last_name"
               v-model="lastName"

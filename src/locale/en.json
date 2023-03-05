@@ -1,0 +1,29 @@
+{
+  "common": {
+    "help": "HELP",
+    "sign_in": "SIGN IN",
+    "my_data":"My Data",
+    "payment":"Payment",
+    "order_created": "Order Created",
+    "required":"Required"
+  },
+  "btn": {
+    "continue": "Continue",
+    "back": "Back",
+    "pay": "Pay"
+  },
+  "step_one": {
+    "description": "Please enter your personal data and press continue",
+    "name": "Name",
+    "last_name": "Last Name"
+  },
+  "step_two": {
+    "description": "After making the payment you will receive a confirmation email with details of your purchase",
+    "credit_card": "Credit Card",
+    "info": "You will be redirected to a secure payment platform. This is a secure process. The validation of your payment can take up to 24 hours."
+  },
+  "step_three": {
+    "info_1": "Congratulations, your payment was successful.",
+    "info_2": "Shortly a confirmation email will arrive to your inbox"
+  }
+}
