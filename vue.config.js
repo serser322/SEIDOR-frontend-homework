@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: 'SEIDOR-frontend-homework'
+  publicPath: '/SEIDOR-frontend-homework/'
 }
