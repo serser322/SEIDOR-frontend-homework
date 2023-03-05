@@ -47,7 +47,7 @@ const props = defineProps({
   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
   background-color: var(--primary);
   color:white;
-  min-width: 120px;
+  min-width: 100%;
 
   &:hover {
     cursor: pointer;
@@ -55,8 +55,9 @@ const props = defineProps({
   }
 
   &:active {
-    background-color: rgb(118, 118, 118);
-    box-shadow: 0 0 8px  rgb(184, 184, 184);
+    color:black;
+    background-color: yellow;
+    box-shadow: 0 0 8px yellow;
   }
 
   .btn__icon{
@@ -67,6 +68,10 @@ const props = defineProps({
     span {
       font-size:1rem
     }
+  }
+
+  @media (min-width: 576px) {
+    min-width: 120px;
   }
 }
 
