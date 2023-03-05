@@ -2,7 +2,7 @@
 const props = defineProps({
   cardData: {
     type: Object,
-    default: () => {}
+    default: () => { }
   }
 })
 
@@ -29,18 +29,31 @@ const props = defineProps({
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  width: 60rem;
+  width: 80vw;
   min-height: 25rem;
   border: 2px solid black;
   box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
   background-color: white;
-  padding-top:1.5rem;
+  padding-top: 1.5rem;
+
+  .card__description {
+    text-align: center;
+    margin: 0 1rem;
+  }
 
   .card__content,
   .card__footer {
     margin: 1rem 0;
-    width: 50%;
+    width: 70%;
+  }
+
+  @media (min-width: 576px) {
+    max-width: 60rem;
+
+    .card__content,
+    .card__footer {
+      width: 55%;
+    }
   }
 }
-
 </style>

@@ -63,26 +63,27 @@ const props = defineProps({
 </template>
 
 <style lang="scss" scoped>
-@mixin flex-justify-center() {
-  display: flex;
-  justify-content: center;
-}
-
 @mixin step-circle() {
   display: flex;
   justify-content: center;
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
   border-radius: 50%;
   color: white;
   align-items: center;
+
+  @media (min-width: 576px) {
+    height: 3rem;
+    width: 3rem;
+  }
 }
 
 .stepper {
   display: flex;
   justify-content: center;
   margin: 4rem auto;
-  width: 100%;
+  width: auto;
+
   .stepper__wrapper {
     display: flex;
 
@@ -95,7 +96,11 @@ const props = defineProps({
         @include step-circle();
         border: 1px solid var(--secondary);
         background-color: var(--primary);
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+
+        @media (min-width: 576px) {
+          font-size: 1.5rem;
+        }
       }
 
       .stepper__item-finished {
@@ -104,22 +109,35 @@ const props = defineProps({
         background-color: var(--finish-color);
 
         img {
-          width: 25px
+          width: 18px;
+
+          @media (min-width: 576px) {
+            width: 25px;
+          }
         }
       }
 
       :nth-child(2) {
         margin-top: 1rem;
-        font-size: 1.5rem;
+        font-size: 1rem;
+
+        @media (min-width: 576px) {
+          font-size: 1.5rem;
+        }
       }
 
       .stepper__item-line {
         display: block;
         height: 1px;
-        width: 10rem;
+        width: 5rem;
         border: 0;
         border-top: 1px dashed var(--primary);
-        margin: auto 2rem;
+        margin: auto 1rem;
+
+        @media (min-width: 576px) {
+          width: 10rem;
+          margin: auto 2rem;
+        }
       }
     }
   }

@@ -2,7 +2,7 @@
 const props = defineProps({
   btnData: {
     type: Object,
-    default: () => {}
+    default: () => { }
   }
 })
 </script>
@@ -10,7 +10,7 @@ const props = defineProps({
 <template>
   <div
     class="btn"
-    :class="{ 'to-left': btnData.isBack , 'to-right':btnData.isNext}"
+    :class="{ 'to-left': btnData.isBack, 'to-right': btnData.isNext }"
   >
     <div class="btn__icon">
       <span
@@ -35,19 +35,18 @@ const props = defineProps({
 </template>
 
 <style lang="scss" scoped>
-
 .btn {
   display: flex;
   justify-content: center;
-  align-items: center ;
-  border:1px solid black;
+  align-items: center;
+  border: 1px solid black;
   margin: 0.5rem 0;
   padding: 0.5rem;
   border-radius: 5px;
   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
   background-color: var(--primary);
-  color:white;
-  min-width: 120px;
+  color: white;
+  min-width:100%;
 
   &:hover {
     cursor: pointer;
@@ -55,28 +54,42 @@ const props = defineProps({
   }
 
   &:active {
-    background-color: rgb(118, 118, 118);
-    box-shadow: 0 0 8px  rgb(184, 184, 184);
+    color: black;
+    background-color: yellow;
+    box-shadow: 0 0 8px yellow;
   }
 
-  .btn__icon{
-    display:flex;
+  .btn__icon {
+    display: flex;
     justify-content: center;
     align-items: center;
 
     span {
-      font-size:1rem
+      font-size: 1rem
     }
+  }
+
+  @media (min-width: 576px) {
+    min-width: 125px;
   }
 }
 
 .to-left {
-    padding-left:1rem;
-    padding-right:3rem;
-  }
+  justify-content: start;
+  padding-left: 2rem;
 
-  .to-right {
-    padding-left:3rem;
-    padding-right: 1rem;
+  @media (min-width: 576px) {
+    padding-left: 0.5rem;
   }
+}
+
+.to-right {
+  justify-content: end;
+  padding-right: 2rem;
+
+  @media (min-width: 576px) {
+    padding-right: 0.5rem;
+  }
+}
+
 </style>
