@@ -40,6 +40,10 @@ export const router = createRouter(
             props: true
           }
         ]
+      },
+      {
+        path: '/:catchAll(.*)',
+        redirect: 'checkout'
       }
     ]
   }
